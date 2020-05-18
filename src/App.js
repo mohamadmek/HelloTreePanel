@@ -5,18 +5,11 @@ import {AppFooter} from './AppFooter';
 import {AppMenu} from './AppMenu';
 import {AppProfile} from './AppProfile';
 import {Route} from 'react-router-dom';
-import {Dashboard} from './components/Dashboard';
-import {FormsDemo} from './components/FormsDemo';
-import {SampleDemo} from './components/SampleDemo';
-import {DataDemo} from './components/DataDemo';
-import {PanelsDemo} from './components/PanelsDemo';
-import {OverlaysDemo} from './components/OverlaysDemo';
-import {MenusDemo} from './components/MenusDemo';
-import {MessagesDemo} from './components/MessagesDemo';
-import {ChartsDemo} from './components/ChartsDemo';
-import {MiscDemo} from './components/MiscDemo';
-import {EmptyPage} from './components/EmptyPage';
-import {Documentation} from "./components/Documentation";
+import Login from './components/Login';
+import Brochures from './components/Brochures';
+import Testimonials from './components/Testimonials';
+import Abouttext from './components/Abouttexts';
+import Slides from './components/Slides';
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -97,89 +90,12 @@ class App extends Component {
 
     createMenu() {
         this.menu = [
-            {label: 'Dashboard', icon: 'pi pi-fw pi-home', command: () => {window.location = '#/'}},
-            {
-                label: 'Menu Modes', icon: 'pi pi-fw pi-cog',
-                items: [
-                    {label: 'Static Menu', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutMode: 'static'}) },
-                    {label: 'Overlay Menu', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutMode: 'overlay'}) }
-                ]
-            },
-            {
-                label: 'Menu Colors', icon: 'pi pi-fw pi-align-left',
-                items: [
-                    {label: 'Dark', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutColorMode: 'dark'}) },
-                    {label: 'Light', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutColorMode: 'light'}) }
-                ]
-            },
-            {
-                label: 'Components', icon: 'pi pi-fw pi-globe', badge: '9',
-                items: [
-					{label: 'Sample Page', icon: 'pi pi-fw pi-th-large', to: '/sample'},
-					{label: 'Forms', icon: 'pi pi-fw pi-file', to: '/forms'},
-					{label: 'Data', icon: 'pi pi-fw pi-table', to: '/data'},
-					{label: 'Panels', icon: 'pi pi-fw pi-list', to: '/panels'},
-					{label: 'Overlays', icon: 'pi pi-fw pi-clone', to: '/overlays'},
-					{label: 'Menus', icon: 'pi pi-fw pi-plus', to: '/menus'},
-					{label: 'Messages', icon: 'pi pi-fw pi-spinner',to: '/messages'},
-					{label: 'Charts', icon: 'pi pi-fw pi-chart-bar', to: '/charts'},
-					{label: 'Misc', icon: 'pi pi-fw pi-upload', to: '/misc'}
-                ]
-            },
-            {
-                label: 'Template Pages', icon: 'pi pi-fw pi-file',
-                items: [
-                    {label: 'Empty Page', icon: 'pi pi-fw pi-circle-off', to: '/empty'}
-                ]
-            },
-            {
-                label: 'Menu Hierarchy', icon: 'pi pi-fw pi-search',
-                items: [
-                    {
-                        label: 'Submenu 1', icon: 'pi pi-fw pi-bookmark',
-                        items: [
-                            {
-                                label: 'Submenu 1.1', icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    {label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-bookmark'},
-                                ]
-                            },
-                            {
-                                label: 'Submenu 1.2', icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    {label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 1.2.2', icon: 'pi pi-fw pi-bookmark'}
-                                ]
-                            },
-                        ]
-                    },
-                    {
-                        label: 'Submenu 2', icon: 'pi pi-fw pi-bookmark',
-                        items: [
-                            {
-                                label: 'Submenu 2.1', icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    {label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 2.1.3', icon: 'pi pi-fw pi-bookmark'},
-                                ]
-                            },
-                            {
-                                label: 'Submenu 2.2', icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    {label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 2.2.2', icon: 'pi pi-fw pi-bookmark'}
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {label: 'Documentation', icon: 'pi pi-fw pi-question', command: () => {window.location = "#/documentation"}},
-            {label: 'View Source', icon: 'pi pi-fw pi-search', command: () => {window.location = "https://github.com/primefaces/sigma"}}
-        ];
+            {label: 'Slides', icon: 'pi pi-fw pi-angle-right', command: () => {window.location = '#/slides'}},
+            {label: 'Brochure', icon: 'pi pi-fw pi-angle-right', command: () => {window.location = '#/brochures'}},
+            {label: 'About Text', icon: 'pi pi-fw pi-angle-right', command: () => {window.location = '#/abouttext'}},
+            {label: 'Testimonials', icon: 'pi pi-fw pi-angle-right', command: () => {window.location = '#/testimonials'}},
+        ]
+                   
     }
 
     addClass(element, className) {
@@ -208,7 +124,7 @@ class App extends Component {
     }
 
     render() {
-        const logo = this.state.layoutColorMode === 'dark' ? 'assets/layout/images/logo-white.svg': 'assets/layout/images/logo.svg';
+        // const logo = this.state.layoutColorMode === 'dark' ? 'assets/layout/images/logo-white.svg': 'assets/layout/images/logo.svg';
 
         const wrapperClass = classNames('layout-wrapper', {
             'layout-overlay': this.state.layoutMode === 'overlay',
@@ -224,30 +140,21 @@ class App extends Component {
         });
 
         return (
-            <div className={wrapperClass} onClick={this.onWrapperClick}>
+            <div className={wrapperClass} onClick={this.onWrapperClick} >
                 <AppTopbar onToggleMenu={this.onToggleMenu}/>
 
-                <div ref={(el) => this.sidebar = el} className={sidebarClassName} onClick={this.onSidebarClick}>
-                    <div className="layout-logo">
-                        <img alt="Logo" src={logo} />
-                    </div>
+                <div style={{background: '#343a40'}} ref={(el) => this.sidebar = el} className={sidebarClassName} onClick={this.onSidebarClick}>
                     <AppProfile />
                     <AppMenu model={this.menu} onMenuItemClick={this.onMenuItemClick} />
                 </div>
 
                 <div className="layout-main">
-                    <Route path="/" exact component={Dashboard} />
-                    <Route path="/forms" component={FormsDemo} />
-                    <Route path="/sample" component={SampleDemo} />
-                    <Route path="/data" component={DataDemo} />
-                    <Route path="/panels" component={PanelsDemo} />
-                    <Route path="/overlays" component={OverlaysDemo} />
-                    <Route path="/menus" component={MenusDemo} />
-                    <Route path="/messages" component={MessagesDemo} />
-                    <Route path="/charts" component={ChartsDemo} />
-                    <Route path="/misc" component={MiscDemo} />
-                    <Route path="/empty" component={EmptyPage} />
-                    <Route path="/documentation" component={Documentation} />
+                    <Route path="/" exact render={(props) => <Login />} />
+                    <Route path="/brochures" exact render={(props) => <Brochures />} />
+                    <Route path="/testimonials" exact render={(props) => <Testimonials />} />
+                    <Route path="/abouttext" exact render={(props) => <Abouttext />} />
+                    <Route path="/slides" exact render={(props) => <Slides />} />
+                    
                 </div>
 
                 <AppFooter />

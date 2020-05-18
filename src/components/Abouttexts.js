@@ -101,6 +101,7 @@ addAboutText = async (e) => {
  render() {
   return (
    <>
+   <div style={{ margin: '0 0 10px 0', fontWeight: 'bold', fontSize: '25px' }}>- About Texts</div>
      <Table striped bordered hover variant="dark" bsPrefix="brochureTrable table">
       <thead>
         <tr>
@@ -108,6 +109,8 @@ addAboutText = async (e) => {
           <th>Title</th>
           <th>First Text</th>
           <th>Second Text</th>
+          <th style={{textAlign: 'center'}}>Edit</th>
+      <th style={{textAlign: 'center'}}>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -121,7 +124,7 @@ addAboutText = async (e) => {
         ))}
       </tbody>
     </Table>
-    <Button variant="dark" onClick={() => this.setState({isAdd: true})} >Add New About Text</Button>
+    <Button variant="dark" style={{background: '#FAD32E', border: 'none'}} onClick={() => this.setState({isAdd: true})} >Add New About Text</Button>
     <FormNew isAdd={this.state.isAdd}>
      <Form onSubmit={(e) => this.addAboutText(e)}>
        <Form.Group controlId="formBasicEmail">
@@ -139,10 +142,10 @@ addAboutText = async (e) => {
          <Form.Control as="textarea" rows="7" value={this.state.textSecond} onChange={(e) => this.setState({textSecond: e.target.value})} />
        </Form.Group>
 
-       <Button variant="dark" type="submit">
+       <Button variant="dark" type="submit" style={{background: '#219910'}}>
          Add
        </Button>
-       <Button type="button" variant="dark" style={{marginLeft: '10px'}} onClick={() => this.setState({isAdd: false})}>
+       <Button type="button" variant="dark" style={{marginLeft: '10px',background: 'rgb(206, 61, 61)'}} onClick={() => this.setState({isAdd: false})}>
          Cancel
        </Button>
      </Form>

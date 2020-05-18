@@ -69,8 +69,8 @@ render() {
       <td>{this.props.testimonial.quote}</td>
       <td>{this.props.testimonial.name}</td>
       <td>{this.props.testimonial.text}</td>
-      <td style={{cursor: 'pointer'}} onClick={() => this.setState({ isEdit: true })} >Edit</td>
-      <td style={{cursor: 'pointer'}} onClick={() => this.props.handleDelete(this.props.testimonial.id)} >Delete</td>
+      <td style={{textAlign: 'center'}} ><button onClick={() => this.setState({isEdit: true})} style={{ cursor: 'pointer',padding: '0px 20px', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-edit"></i></button></td>
+      <td style={{textAlign: 'center'}}  ><button onClick={() => this.props.handleDelete(this.props.testimonial.id)} style={{cursor: 'pointer', padding: '0px 20px',outline:'none', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-trash-alt"></i></button></td>
     </tr>
     <FormNew isEdit={this.state.isEdit}>
      <Form onSubmit={(e) => this.updateTestimonial(e)}>
@@ -93,10 +93,10 @@ render() {
          <Form.Label style={{color: '#fff', fontSize: '18px'}}>Text</Form.Label>
          <Form.Control as="textarea" rows="7" value={this.state.text} onChange={(e) => this.setState({text: e.target.value})} />
        </Form.Group>
-       <Button variant="dark" type="submit">
+       <Button variant="dark" type="submit" style={{background: '#219910'}}>
          Save
        </Button>
-       <Button type="button" variant="dark" style={{marginLeft: '10px'}} onClick={() => this.setState({isEdit: false})}>
+       <Button type="button" variant="dark" style={{marginLeft: '10px',background: 'rgb(206, 61, 61)'}} onClick={() => this.setState({isEdit: false})}>
          Cancel
        </Button>
      </Form>

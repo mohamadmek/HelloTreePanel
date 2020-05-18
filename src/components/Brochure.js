@@ -76,8 +76,10 @@ export default class Brochure extends Component {
       <td>{this.props.index + 1}</td>
       <td>{this.props.brochure.title}</td>
       <td>{this.props.brochure.text}</td>
-      <td style={{cursor: 'pointer'}} onClick={() => this.setState({isEdit: true})} >Edit</td>
-      <td style={{cursor: 'pointer'}} onClick={() => this.props.handleDelete(this.props.brochure.id)} >Delete</td>
+      <td style={{ textAlign: 'center'}}  ><button onClick={() => this.setState({isEdit: true})} style={{ cursor: 'pointer',padding: '0px 20px', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-edit"></i></button></td>
+      <td style={{textAlign: 'center'}}  ><button onClick={() => this.props.handleDelete(this.props.brochure.id)} style={{cursor: 'pointer', padding: '0px 20px',outline:'none', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-trash-alt"></i></button></td>
+      {/* <button>Edit</button>
+      <button>delete</button> */}
     </tr>
     <FormNew isEdit={this.state.isEdit}>
         <Form onSubmit={(e) => this.updateBrochure(e)}>
@@ -91,10 +93,10 @@ export default class Brochure extends Component {
             <Form.Control as="textarea" rows="3" value={this.state.text} onChange={(e) => this.setState({text: e.target.value})} />
           </Form.Group>
 
-          <Button variant="dark" type="submit">
+          <Button variant="dark" style={{background: '#219910'}} type="submit">
             Save
           </Button>
-          <Button type='button' variant="dark" style={{marginLeft: '10px'}} onClick={() => this.setState({isEdit: false})}>
+          <Button type='button' style={{background: 'rgb(206, 61, 61)',marginLeft: '10px'}} variant="dark" onClick={() => this.setState({isEdit: false})}>
             Cancel
           </Button>
         </Form>

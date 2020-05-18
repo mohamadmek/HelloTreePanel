@@ -106,6 +106,7 @@ export default class Slides extends Component {
  render() {
   return (
   <>
+  <div style={{ margin: '0 0 10px 0', fontWeight: 'bold', fontSize: '25px' }}>- Slides</div>
     <Table striped bordered hover variant="dark" bsPrefix="brochureTrable table">
       <thead>
         <tr>
@@ -113,6 +114,8 @@ export default class Slides extends Component {
           <th>Image</th>
           <th>Title</th>
           <th>Description Text</th>
+          <th style={{textAlign: 'center'}}>Edit</th>
+      <th style={{textAlign: 'center'}}>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -126,7 +129,7 @@ export default class Slides extends Component {
         ))}
       </tbody>
       </Table>
-      <Button variant="dark" onClick={() => this.setState({isAdd: true})} >Add New Slide</Button>
+      <Button style={{background: '#FAD32E', border: 'none'}} variant="dark" onClick={() => this.setState({isAdd: true})} >Add New Slide</Button>
       <FormNew isAdd={this.state.isAdd}>
         <Form onSubmit={(e) => this.addSlide(e)} enctype="multipart/form-data" >
           <Form.Group controlId="formBasicEmail">
@@ -144,10 +147,10 @@ export default class Slides extends Component {
             <Form.Control as="textarea" rows="7" value={this.state.textSecond} onChange={(e) => this.setState({description: e.target.value})} />
           </Form.Group>
 
-          <Button variant="dark" type="submit">
+          <Button variant="dark" type="submit" style={{background: '#219910'}}>
             Add
           </Button>
-          <Button type="button" variant="dark" style={{marginLeft: '10px'}} onClick={() => this.setState({isAdd: false})}>
+          <Button type="button" variant="dark" style={{marginLeft: '10px',background: 'rgb(206, 61, 61)'}} onClick={() => this.setState({isAdd: false})}>
             Cancel
           </Button>
           </Form>

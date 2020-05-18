@@ -12,7 +12,7 @@ const FormNew = styled.div`
  background: #454d55;
  position: fixed;
  left: 40%;
- bottom: 5%;
+ bottom: 0;
  z-index: 400;
  border-radius: 5px;
  box-shadow: 0px 0px 0px 3px rgba(63,63,63,0.75);
@@ -72,8 +72,8 @@ constructor(props) {
       <td>{this.props.aboutText.title}</td>
       <td>{this.props.aboutText.textfirst}</td>
       <td>{this.props.aboutText.titlesecond}</td>
-      <td style={{cursor: 'pointer'}} onClick={() => this.setState({ isEdit: true })} >Edit</td>
-      <td style={{cursor: 'pointer'}} onClick={() => this.props.handleDelete(this.props.aboutText.id)} >Delete</td>
+      <td><button onClick={() => this.setState({isEdit: true})} style={{ cursor: 'pointer',padding: '0px 20px', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-edit"></i></button></td>
+      <td><button onClick={() => this.props.handleDelete(this.props.aboutText.id)} style={{cursor: 'pointer', padding: '0px 20px',outline:'none', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-trash-alt"></i></button></td>
     </tr>
     <FormNew isEdit={this.state.isEdit}>
      <Form onSubmit={(e) => this.updateAbout(e)} >
@@ -92,10 +92,10 @@ constructor(props) {
          <Form.Control as="textarea" rows="7" value={this.state.textSecond} onChange={(e) => this.setState({textSecond: e.target.value})} />
        </Form.Group>
 
-       <Button variant="dark" type="submit">
+       <Button type="submit" style={{background: '#219910'}}>
          save
        </Button>
-       <Button type="button" variant="dark" style={{marginLeft: '10px'}} onClick={() => this.setState({isEdit: false})}>
+       <Button type="button" variant="dark" style={{marginLeft: '10px',background: 'rgb(206, 61, 61)'}} onClick={() => this.setState({isEdit: false})}>
          Cancel
        </Button>
      </Form>

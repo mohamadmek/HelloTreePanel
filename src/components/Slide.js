@@ -64,8 +64,8 @@ render() {
       <td><img style={{width: '150px', height: '150px'}} src={`http://localhost:8000/storage/images/${this.props.slide.image}`} alt={this.props.slide.image} /></td>
       <td>{this.props.slide.title}</td>
       <td>{this.props.slide.description}</td>
-      <td style={{cursor: 'pointer'}} onClick={() => this.setState({ isEdit: true })}>Edit</td>
-      <td style={{cursor: 'pointer'}} onClick={() => this.props.handleDelete(this.props.slide.id, this.props.slide.image)} >Delete</td>
+      <td style={{textAlign: 'center'}}><button onClick={() => this.setState({isEdit: true})} style={{ cursor: 'pointer',padding: '0px 20px', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-edit"></i></button></td>
+      <td style={{textAlign: 'center'}} ><button onClick={() => this.props.handleDelete(this.props.slide.id, this.props.slide.image)}  style={{cursor: 'pointer', padding: '0px 20px',outline:'none', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-trash-alt"></i></button></td>
     </tr>
     <FormNew isEdit={this.state.isEdit}>
         <Form enctype="multipart/form-data" onSubmit={(e) => this.updateSlide(e)} >
@@ -84,10 +84,10 @@ render() {
             <Form.Control as="textarea" name="description" rows="7" value={this.state.description} onChange={(e) => this.setState({description: e.target.value})} />
           </Form.Group>
 
-          <Button variant="dark" type="submit">
+          <Button  type="submit" style={{background: '#219910'}}>
             Save
           </Button>
-          <Button type="button" variant="dark" style={{marginLeft: '10px'}} onClick={() => this.setState({isEdit: false})}>
+          <Button type="button" variant="dark" style={{marginLeft: '10px',background: 'rgb(206, 61, 61)'}} onClick={() => this.setState({isEdit: false})}>
             Cancel
           </Button>
           </Form>

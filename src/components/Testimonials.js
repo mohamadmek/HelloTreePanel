@@ -102,6 +102,7 @@ export default class Testimonials extends Component {
    render() {
     return (
       <>
+      <div style={{ margin: '0 0 10px 0', fontWeight: 'bold', fontSize: '25px' }}>- Testimonials</div>
       <Table striped bordered hover variant="dark" bsPrefix="brochureTrable table">
       <thead>
         <tr>
@@ -110,6 +111,8 @@ export default class Testimonials extends Component {
           <th>Quote</th>
           <th>Name</th>
           <th>Text</th>
+          <th style={{textAlign: 'center'}}>Edit</th>
+      <th style={{textAlign: 'center'}}>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -123,7 +126,7 @@ export default class Testimonials extends Component {
         ))}
       </tbody>
     </Table>
-    <Button variant="dark" onClick={() => this.setState({isAdd: true})} >Add New Testimonial</Button>
+    <Button style={{background: '#FAD32E', border: 'none'}} variant="dark" onClick={() => this.setState({isAdd: true})} >Add New Testimonial</Button>
     <FormNew isAdd={this.state.isAdd}>
      <Form onSubmit={(e) => this.addTestimonial(e)}>
        <Form.Group controlId="formBasicEmail">
@@ -145,10 +148,10 @@ export default class Testimonials extends Component {
          <Form.Label style={{color: '#fff', fontSize: '18px'}}>Text</Form.Label>
          <Form.Control as="textarea" rows="7" value={this.state.text} onChange={(e) => this.setState({text: e.target.value})} />
        </Form.Group>
-       <Button variant="dark" type="submit">
+       <Button variant="dark" type="submit" style={{background: '#219910'}}>
          Add
        </Button>
-       <Button type="button" variant="dark" style={{marginLeft: '10px'}} onClick={() => this.setState({isAdd: false})}>
+       <Button type="button" variant="dark" style={{marginLeft: '10px',background: 'rgb(206, 61, 61)'}} onClick={() => this.setState({isAdd: false})}>
          Cancel
        </Button>
      </Form>

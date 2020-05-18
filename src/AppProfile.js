@@ -27,7 +27,7 @@ export class AppProfile extends Component {
                     <img src="assets/layout/images/treetrans.png" alt="" style={{height: '200px', width: '200px', margin: 0}} />
                 </div>
                 <button className="p-link layout-profile-link" onClick={this.onClick}>
-                    <span className="username">Mohammad Meksasi</span>
+                    <span className="username">{localStorage.getItem('userName')}</span>
                     <i className="pi pi-fw pi-cog"/>
                 </button>
                 <ul className={classNames({'layout-profile-expanded': this.state.expanded})}>

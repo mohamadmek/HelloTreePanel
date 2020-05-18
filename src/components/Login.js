@@ -167,6 +167,7 @@ export default class Login extends Component {
       }
      });
      const result = await response.json();
+     
      if(result.access_token) {
       this.setState({
        username: '',
@@ -202,7 +203,11 @@ export default class Login extends Component {
      }
     });
     const result = await response.json();
-    console.log('login', result);
+    const responseUser = await fetch(`http://localhost:8000/api/user/${this.state.email}`, {
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+     });
+     const user = await responseUser.json();
+     localStorage.setItem('userName', user.user.name);
     if(result.access_token) {
      localStorage.setItem('token', result.access_token);
      this.setState({ email: '', password: '' })
@@ -212,7 +217,7 @@ export default class Login extends Component {
     }
    } catch(err) {
     console.log(err);
-   }
+   } 
   }
 
   signUpForm = () => {

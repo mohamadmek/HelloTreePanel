@@ -250,7 +250,7 @@ export default class Login extends Component {
   signInForm = () => {
   return (
     <Form onSubmit={(e) => this.handleLogin(e)} >
- <label for="email" style={{display:"block", color: "#fff"}}>Email</label>
+ <label htmlFor="email" style={{display:"block", color: "#fff"}}>Email</label>
  <Input
  type="email" 
  name="email" 
@@ -258,7 +258,7 @@ export default class Login extends Component {
  onChange={e => this.setState({ email: e.target.value })}
  value={this.state.email}
  />
- <label for="password" style={{display:"block", color: "#fff"}}>PASSWORD</label>
+ <label htmlFor="password" style={{display:"block", color: "#fff"}}>PASSWORD</label>
  <Input 
   type="password" 
   name="password" 
@@ -277,7 +277,7 @@ export default class Login extends Component {
  render() {
   return (
    <Wrapper>
-   <Logins class="m_w100">
+   <Logins className="m_w100">
    <div style={{textAlign: "right", margin: "20px 20px 0 400px"}} >
    <Button2 onClick={this.handleClickSignup} signStatus={this.state.signStatus}>Sign In</Button2>
    <Button1 onClick={this.handleClickLogin} signStatus={this.state.signStatus}>Sign Up</Button1>

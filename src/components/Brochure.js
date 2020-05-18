@@ -76,8 +76,8 @@ export default class Brochure extends Component {
       <td>{this.props.index + 1}</td>
       <td>{this.props.brochure.title}</td>
       <td>{this.props.brochure.text}</td>
-      <td style={{ textAlign: 'center'}}  ><button onClick={() => this.setState({isEdit: true})} style={{ cursor: 'pointer',padding: '0px 20px', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-edit"></i></button></td>
-      <td style={{textAlign: 'center'}}  ><button onClick={() => this.props.handleDelete(this.props.brochure.id)} style={{cursor: 'pointer', padding: '0px 20px',outline:'none', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-trash-alt"></i></button></td>
+      <td style={{ textAlign: 'center'}}  ><button onClick={() => this.setState({isEdit: true})} style={{ cursor: 'pointer',padding: '0px 20px', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i className="far fa-edit"></i></button></td>
+      <td style={{textAlign: 'center'}}  ><button onClick={() => this.props.handleDelete(this.props.brochure.id)} style={{cursor: 'pointer', padding: '0px 20px',outline:'none', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i className="far fa-trash-alt"></i></button></td>
       {/* <button>Edit</button>
       <button>delete</button> */}
     </tr>

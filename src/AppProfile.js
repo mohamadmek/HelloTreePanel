@@ -15,7 +15,16 @@ export class AppProfile extends Component {
         this.setState({expanded: !this.state.expanded});
         event.preventDefault();
     }
-     logout = () => {
+     logout = async () => {
+        const response = await fetch(`http://localhost:8000/logout`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        });
+        const result = await response.json();
+        console.log(result);
         localStorage.clear();
         window.location = '/';
         }

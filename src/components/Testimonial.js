@@ -64,7 +64,7 @@ render() {
     <tr>
       <td>{this.props.index + 1}</td>
       <td><img
-       src={`http://localhost:8000/storage/images/${this.props.testimonial.image}`}
+       src={`http://localhost:8000/images/${this.props.testimonial.image}`}
        style={{width: '200px', height: '200px'}} alt={this.props.testimonial.image} /></td>
       <td>{this.props.testimonial.quote}</td>
       <td>{this.props.testimonial.name}</td>

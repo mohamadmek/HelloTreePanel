@@ -61,7 +61,7 @@ render() {
    <>
     <tr>
       <td>{this.props.index + 1}</td>
-      <td><img style={{width: '150px', height: '150px'}} src={`http://localhost:8000/storage/images/${this.props.slide.image}`} alt={this.props.slide.image} /></td>
+      <td><img style={{width: '150px', height: '150px'}} src={`http://localhost:8000/images/${this.props.slide.image}`} alt={this.props.slide.image} /></td>
       <td>{this.props.slide.title}</td>
       <td>{this.props.slide.description}</td>
       <td style={{textAlign: 'center'}}><button onClick={() => this.setState({isEdit: true})} style={{ cursor: 'pointer',padding: '0px 20px', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-edit"></i></button></td>

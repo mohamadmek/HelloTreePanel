@@ -70,7 +70,7 @@ render() {
       <td>{this.props.testimonial.name}</td>
       <td>{this.props.testimonial.text}</td>
       <td style={{textAlign: 'center'}} ><button onClick={() => this.setState({isEdit: true})} style={{ cursor: 'pointer',padding: '0px 20px', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-edit"></i></button></td>
-      <td style={{textAlign: 'center'}}  ><button onClick={() => this.props.handleDelete(this.props.testimonial.id)} style={{cursor: 'pointer', padding: '0px 20px',outline:'none', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-trash-alt"></i></button></td>
+      <td style={{textAlign: 'center'}}  ><button onClick={() => this.props.handleDelete(this.props.testimonial.id, this.props.testimonial.image)} style={{cursor: 'pointer', padding: '0px 20px',outline:'none', background: 'transparent', border: 'none', fontSize: '20px', color:'#fff'}}><i class="far fa-trash-alt"></i></button></td>
     </tr>
     <FormNew isEdit={this.state.isEdit}>
      <Form onSubmit={(e) => this.updateTestimonial(e)}>

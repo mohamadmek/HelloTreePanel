@@ -51,24 +51,25 @@ export default class Testimonials extends Component {
     }
    }
   
-   handleDelete = async (id) => {
-    try{
+   handleDelete = async (id, image) => {
+    
+      let body = new FormData();
+      body.append('image', image);
+      body.append('_method', 'DELETE')
      const response = await fetch(`http://localhost:8000/api/testimonials/${id}`, {
-      method: 'DELETE',
+      method: 'POST',
+      body: body,
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }
      });
      const result = await response.json();
-     if(result.status) {
+     
        const testimonials = this.state.testimonials.filter(
         testimonial => testimonial.id !== id
        );
        this.setState({ testimonials })
-     }
-    } catch(err) {
-     console.log(err);
-    }
+    
    }
   
    addTestimonial = async (e) => {
@@ -128,7 +129,7 @@ export default class Testimonials extends Component {
     </Table>
     <Button style={{background: '#FAD32E', border: 'none'}} variant="dark" onClick={() => this.setState({isAdd: true})} >Add New Testimonial</Button>
     <FormNew isAdd={this.state.isAdd}>
-     <Form onSubmit={(e) => this.addTestimonial(e)}>
+     <Form onSubmit={(e) => this.addTestimonial(e)} enctype="multipart/form-data" >
        <Form.Group controlId="formBasicEmail">
         <Form.Label style={{color: '#fff', fontSize: '18px'}}>Image</Form.Label>
         <Form.Control type="file" onChange={(e) => this.setState({image: e.target.files[0]})} />
